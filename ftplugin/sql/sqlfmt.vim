@@ -12,7 +12,7 @@ endfunction
 
 function! s:sqlfmt() abort
   call setqflist([])
-  let cmd = get(g:, 'sqlfmt_program', 'sqlformat -r -k upper -')
+  let cmd = get(g:, 'sqlfmt_program', 'sql-formatter ')
   let lines = system(cmd, iconv(s:get_visual_selection(), &encoding, 'utf-8'))
   if v:shell_error != 0
     echoerr substitute(lines, '[\r\n]', ' ', 'g')
